@@ -14,17 +14,17 @@
     "pl": "Nowy artykuł otrzymany"
   },
   "description": {
-    "en": "Triggered when a new article is received from RTL Nieuws.",
-    "nl": "Geactiveerd wanneer een nieuw artikel wordt ontvangen van RTL Nieuws.",
-    "de": "Ausgelöst, wenn ein neuer Artikel von RTL Nieuws empfangen wird.",
-    "fr": "Déclenché lorsqu'un nouvel article est reçu de RTL Nieuws.",
-    "it": "Attivato quando viene ricevuto un nuovo articolo da RTL Nieuws.",
-    "sv": "Aktiveras när en ny artikel tas emot från RTL Nieuws.",
-    "no": "Utløst når en ny artikkel mottas fra RTL Nieuws.",
-    "es": "Activado cuando se recibe un nuevo artículo de RTL Nieuws.",
-    "da": "Udløst, når en ny artikel modtages fra RTL Nieuws.",
-    "ru": "Срабатывает, когда поступает новая статья от RTL Nieuws.",
-    "pl": "Wyzwalane, gdy zostanie odebrany nowy artykuł z RTL Nieuws."
+    "en": "Triggered when a new article is received from VI.",
+    "nl": "Geactiveerd wanneer een nieuw artikel wordt ontvangen van VI.",
+    "de": "Ausgelöst, wenn ein neuer Artikel von VI empfangen wird.",
+    "fr": "Déclenché lorsqu'un nouvel article est reçu de VI.",
+    "it": "Attivato quando viene ricevuto un nuovo articolo da VI.",
+    "sv": "Aktiveras när en ny artikel tas emot från VI.",
+    "no": "Utløst når en ny artikkel mottas fra VI.",
+    "es": "Activado cuando se recibe un nuevo artículo de VI.",
+    "da": "Udløst, når en ny artikel modtages fra VI.",
+    "ru": "Срабатывает, когда поступает новая статья от VI.",
+    "pl": "Wyzwalane, gdy zostanie odebrany nowy artykuł z VI."
   },
   "tokens": [
     {
@@ -62,7 +62,7 @@
       "type": "string"
     },
     {
-      "name": "content",
+      "name": "description",
       "title": {
         "en": "Article Description",
         "nl": "Artikel Omschrijving",
@@ -96,7 +96,7 @@
       "type": "string"
     },
     {
-      "name": "imageUrl",
+      "name": "media",
       "title": {
         "en": "Article Image URL",
         "nl": "Artikel Afbeelding URL",
