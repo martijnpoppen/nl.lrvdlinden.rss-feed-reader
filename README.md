@@ -2,8 +2,7 @@
 
 <p align="center">
   <a href="https://homey.app/nl-nl/apps/author/5d4da77a2c836a50f6936070/page/0/">
-![overvi_header_10-2019](https://github.com/LRvdLinden/nl.lrvdlinden.vi/assets/77990847/b5765bee-ee08-4668-9a91-0a72c82a3e72)
-
+    <img src="https://www.blokboek.com/wp-content/uploads/2019/09/vi-logo-768x384.jpg" />
   </a>
 </p>
 
