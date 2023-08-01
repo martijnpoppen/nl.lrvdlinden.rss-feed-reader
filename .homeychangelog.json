@@ -1,66 +1,6 @@
 {
-  "0.0.1": {
-    "en": "Initial Release",
-    "nl": "Eerste release"
-  },
-  "0.0.2": {
-    "en": "Bug fix",
-    "nl": "Kleine verbeteringen"
-  },
-  "0.0.3": {
-    "en": "Trigger card translation",
-    "nl": "Trigger kaart vertaling"
-  },
-  "0.0.4": {
-    "en": "Feed improvements",
-    "nl": "Feed verbeteringen"
-  },
-  "0.0.5": {
-    "en": "Prepairing all documents",
-    "nl": "Alle documentatie voorbereiden"
-  },
-  "0.0.6": {
-    "en": "Feed improvements by @martijnpoppen",
-    "nl": "Feed verbeteringen door @martijnpoppen"  
-  },
   "1.0.0": {
     "en": "First Release",
     "nl": "Eerste Release"  
-  },
-  "1.0.1": {
-    "en": "First Release",
-    "nl": "Eerste Release"  
-  },
-  "1.0.2": {
-    "en": "Translation to all supported Homey languages",
-    "nl": "Vertaling naar alle ondersteunde talen van Homey" 
-    },
-  "1.0.4": {
-    "en": "Fix flowcard",
-    "nl": "Fix flowcard" 
-    },
-  "1.0.5": {
-    "en": "Control built in to prevent an item from being triggered multiple times",
-    "nl": "Controle ingebouwd om te voorkomen dat een artikel meerdere keren wordt getriggert" 
-    },
-  "1.0.6": {
-    "en": "Two new trigger cards. One for RTL Nieuws video and one for RTL Weer video",
-    "nl": "Twee nieuwe triggerkaarten. Eén voor RTL Nieuws video en één voor RTL Weer video." 
-      },
-  "1.0.7": {
-    "en": "Two new trigger cards, One for RTL Nieuws video and one for RTL Weer video and three new condition cards",
-    "nl": "Twee nieuwe triggerkaarten, één voor RTL Nieuws video en één voor RTL Weer video en daarnaast drie nieuwe conditie kaarten" 
-  },
-  "1.0.8": {
-    "en": "Feed improvemend",
-    "nl": "Feed verbetering" 
-  },
-  "1.0.8": {
-    "en": "Feed improvemend",
-    "nl": "Feed verbetering" 
-  },
-  "1.1.0": {
-    "en": "Added more video tokens and trigger + condistion cards for RTL Z",
-    "nl": "Meer video tokens toegevoegd en nieuwe trigger en conditie kaarten voor RTL Z" 
   }
 }
