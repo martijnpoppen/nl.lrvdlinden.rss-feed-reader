@@ -1,4 +1,4 @@
-<h1 align="center">RTL Nieuws for Homey</h1>
+<h1 align="center">VI Nieuws for Homey</h1>
 
 <p align="center">
   <a href="https://homey.app/nl-nl/apps/author/5d4da77a2c836a50f6936070/page/0/">
