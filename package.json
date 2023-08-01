@@ -1,12 +1,12 @@
 {
-  "name": "nl.lrvdlinden.rtl-nieuws",
-  "version": "1.1.0",
+  "name": "nl.lrvdlinden.vi",
+  "version": "0.0.1",
   "description": "Up-to-date RTL nieuws in The Netherlands.",
   "author": "homey@vdlinden.xyz",
   "license": "GPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lrvdlinden/nl.lrvdlinden.rtl-nieuws"
+    "url": "https://github.com/lrvdlinden/nl.lrvdlinden.vi"
   },
   "main": "app.js",
   "scripts": {
