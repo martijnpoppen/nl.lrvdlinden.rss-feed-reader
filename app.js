@@ -2,7 +2,7 @@
 const Homey = require('homey');
 const Parser = require('rss-parser');
 
-class RtlNieuwsApp extends Homey.App {
+class viApp extends Homey.App {
     log() {
         console.log.bind(this, '[log]').apply(this, arguments);
     }
