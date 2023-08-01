@@ -47,7 +47,7 @@ class viApp extends Homey.App {
 
                 this.log(`[checkRssFeed] - got latestItem:`, latestItem);
                 const { title, link, description, pubDate, media } = latestItem;
-                const imageUrl = enclosure.url || "";
+                const imageUrl = media:thumbnail url || "";
                 const data = {
                     title,
                     link,
