@@ -4,7 +4,7 @@
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": ["local"],
-  "brandColor": "#35a7d6",
+  "brandColor": "#1476C6",
   "name": {
     "en": "VI Nieuws",
     "nl": "VI Nieuws"
@@ -14,8 +14,8 @@
     "small": "/assets/images/small.jpg"
   },
   "description": {
-    "en": "Receive notifications for new articles, new RTL Nieuws video and new RTL Weather Video from RTL Nieuws.",
-    "nl": "Ontvang meldingen voor nieuwe artikelen, nieuw RTL Nieuws video en nieuw RTL Weer video van RTL Nieuws."
+    "en": "Receive notifications for new articles from VI.",
+    "nl": "Ontvang meldingen voor nieuwe artikelen van VI."
   },
   "category": "internet",
   "class": "rss",
