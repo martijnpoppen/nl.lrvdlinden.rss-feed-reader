@@ -2,7 +2,8 @@
 
 <p align="center">
   <a href="https://homey.app/nl-nl/apps/author/5d4da77a2c836a50f6936070/page/0/">
-    <img src="https://www.rtlnieuws.nl/sites/default/files/content/images/2020/03/11/rtl%20nieuws%20logo.jpg?itok=lfi4jI9U&width=2048&height=1152&impolicy=semi_dynamic" />
+![overvi_header_10-2019](https://github.com/LRvdLinden/nl.lrvdlinden.vi/assets/77990847/b5765bee-ee08-4668-9a91-0a72c82a3e72)
+
   </a>
 </p>
 
