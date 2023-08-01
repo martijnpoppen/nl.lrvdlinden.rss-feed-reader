@@ -1,13 +1,13 @@
 {
-  "id": "nl.lrvdlinden.rtl-nieuws",
-  "version": "1.1.0",
+  "id": "nl.lrvdlinden.vi",
+  "version": "0.0.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": ["local"],
   "brandColor": "#35a7d6",
   "name": {
-    "en": "RTL Nieuws",
-    "nl": "RTL Nieuws"
+    "en": "VI Nieuws",
+    "nl": "VI Nieuws"
   },
   "images": {
     "large": "/assets/images/large.jpg",
@@ -20,8 +20,8 @@
   "category": "internet",
   "class": "rss",
   "tags": {
-    "en": ["internet", "news", "nos", "nu.nl", "rss", "weather"],
-    "nl": ["internet", "nieuws", "nos", "nu.nl", "rss", "weer"]
+    "en": ["internet", "news", "nos", "nu.nl", "rss", "soccer", "vi"],
+    "nl": ["internet", "nieuws", "nos", "nu.nl", "rss", "voetbal", "vi"]
   },
   "language": {
     "en": "en",
@@ -33,11 +33,6 @@
     "email": "homey@vdlinden.xyz"
   },
   "contributors": {
-    "developers": [
-      {
-        "name": "Martijn Poppen"
-      }
-    ],
     "translators": [
       {
         "name": "🇬🇧 Léon"
