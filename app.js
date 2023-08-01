@@ -17,20 +17,14 @@ class RtlNieuwsApp extends Homey.App {
         this.log(`[onInit] ${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
 
         this.triggerNewArticle = this.homey.flow.getTriggerCard('new_article');
-        this.triggerNewVideoNieuws = this.homey.flow.getTriggerCard('new_video_nieuws');
-        this.triggerNewVideoWeer = this.homey.flow.getTriggerCard('new_video_weer');
-        this.triggerNewVideoRtlZ = this.homey.flow.getTriggerCard('new_video_rtlz');
-        this.condThereIsRtlZVideo = this.homey.flow.getConditionCard('there_is_rtl_z_video');
-        this.condThereIsArticle = this.homey.flow.getConditionCard('there_is_article');
-        this.condThereIsRtlNieuwsVideo = this.homey.flow.getConditionCard('there_is_rtl_nieuws_video');
-        this.condThereIsRtlWeerVideo = this.homey.flow.getConditionCard('there_is_rtl_weer_video');
+ 
 
         this.receivedArticleLink = null;
         this.receivedVideoUrls = new Set(); // Een Set om de ontvangen videolinks bij te houden
 
         this.checkInterval = 5 * 60 * 1000; // 5 minutes
         this.parser = new Parser();
-        this.feedUrl = 'https://www.rtlnieuws.nl/rss.xml';
+        this.feedUrl = 'https://www.vi.nl/feed/nieuws';
 
         setInterval(async () => {
             this.checkRssFeed();
@@ -52,12 +46,12 @@ class RtlNieuwsApp extends Homey.App {
                 }
 
                 this.log(`[checkRssFeed] - got latestItem:`, latestItem);
-                const { title, link, content, pubDate, enclosure } = latestItem;
+                const { title, link, description, pubDate, media } = latestItem;
                 const imageUrl = enclosure.url || "";
                 const data = {
                     title,
                     link,
-                    content,
+                    description,
                     pubDate,
                     imageUrl
                 };
@@ -76,44 +70,11 @@ class RtlNieuwsApp extends Homey.App {
                 }
             }
 
-                // Check if the latest item is from RTL Nieuws
-                if (latestItem.title.includes('RTL Nieuws')) {
-                    // Controleer of de link al eerder is ontvangen
-                    if (!this.receivedVideoUrls.has(latestItem.link)) {
-                        // Voeg de link toe aan de Set
-                        this.receivedVideoUrls.add(latestItem.link);
 
-                        this.log(`[checkRssFeed] - trigger new video from RTL Nieuws Data:`, latestItem.link);
-                        this.triggerNewVideoNieuws.trigger({ url: latestItem.link }).catch((err) => this.error('[checkRssFeed] - Error in triggerNewVideoNieuws', err));
-                    }
-                }
-
-                // Check if the latest item is from RTL Weer
-                if (latestItem.title.includes('RTL Weer')) {
-                    // Controleer of de link al eerder is ontvangen
-                    if (!this.receivedVideoUrls.has(latestItem.link)) {
-                        // Voeg de link toe aan de Set
-                        this.receivedVideoUrls.add(latestItem.link);
-
-                        this.log(`[checkRssFeed] - trigger new video from RTL Weer Data:`, latestItem.link);
-                        this.triggerNewVideoWeer.trigger({ url: latestItem.link }).catch((err) => this.error('[checkRssFeed] - Error in triggerNewVideoWeer', err));
-                    }
-                }
-                // Check if the latest item is from RTL Z
-                if (latestItem.title.includes('RTL Z')) {
-                    // Controleer of de link al eerder is ontvangen
-                    if (!this.receivedVideoUrls.has(latestItem.link)) {
-                        // Voeg de link toe aan de Set
-                        this.receivedVideoUrls.add(latestItem.link);
-
-                        this.log(`[checkRssFeed] - trigger new video from RTL Z Data:`, latestItem.link);
-                        this.triggerNewVideoRtlZ.trigger({ url: latestItem.link }).catch((err) => this.error('[checkRssFeed] - Error in triggerNewVideoRtlZ', err));
-                    }
-                }
         } catch (err) {
             this.error(`[checkRssFeed] - Error in retrieving RSS-feed:`, err);
         }
     }
 }
 
-module.exports = RtlNieuwsApp;
+module.exports = viApp;
