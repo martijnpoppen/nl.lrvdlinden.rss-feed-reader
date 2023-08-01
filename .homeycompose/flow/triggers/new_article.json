@@ -62,7 +62,7 @@
       "type": "string"
     },
     {
-      "name": "description",
+      "name": "content",
       "title": {
         "en": "Article Description",
         "nl": "Artikel Omschrijving",
