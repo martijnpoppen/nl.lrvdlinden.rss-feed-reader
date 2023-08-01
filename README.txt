@@ -1,4 +1,4 @@
-RTL Nieuws for Homey
+VI Nieuws for Homey
 
 This app gives Homey the ability to respond to messages of the Dutch socces sender VI.
 Keep in mind that all messages send on this network are in Dutch.
