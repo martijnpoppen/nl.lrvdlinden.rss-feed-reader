@@ -47,8 +47,7 @@ Keep in mind that all messages send on this network are in Dutch.
 
 ---
 ## Changelog
-- 1.0.0 (1 aug 2023) Added more video tokens and trigger + condistion cards for RTL Z
-
+- 1.0.0 (1 aug 2023) First Release
 
 <details>
 <summary>More changelog</summary>
