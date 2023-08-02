@@ -69,9 +69,13 @@
     <button class="addButton" onclick="addFeedUrl()">Nog een feed toevoegen</button>
     <button class="saveButton" onclick="saveFeedUrls()">Opslaan</button>
     <script>
-        function onHomeyReady(settings) {
-            settings.ready();
+        let settings;
+        Homey.ready().then(function() {
+            settings = Homey.get('settings');
+            onHomeyReady(settings);
+        });
 
+        function onHomeyReady(settings) {
             // Vul de feed URL's in als er al instellingen zijn opgeslagen
             const feedUrls = settings.get('feed_urls') || [];
 
