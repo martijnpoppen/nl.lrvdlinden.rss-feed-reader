@@ -27,7 +27,7 @@
     "en": "en",
     "nl": "nl"
   },
-    "settings": [
+  "settings": [
     {
       "id": "feed_urls",
       "type": "text",
