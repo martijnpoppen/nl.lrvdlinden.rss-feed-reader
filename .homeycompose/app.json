@@ -57,24 +57,5 @@
   },
   "homepage": "https://shor.by/LRvdLinden",
   "support": "https://community.homey.app/t/app-pro-vi-nieuws/85738",
-  "homeyCommunityTopicId": 85738,
-  "settings": [
-    {
-      "id": "feed_urls",
-      "type": "text",
-      "label": {
-        "en": "RSS Feed URLs",
-        "nl": "RSS Feed URL's"
-      },
-      "multiple": true,
-      "placeholder": {
-        "en": "Enter RSS feed URL",
-        "nl": "Voer RSS-feed URL in"
-      },
-      "defaultValue": [
-        "https://www.vi.nl/feed/nieuws"
-      ],
-      "maximum": 10
-    }
-  ]
+  "homeyCommunityTopicId": 85738
 }
