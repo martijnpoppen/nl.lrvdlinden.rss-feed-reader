@@ -20,8 +20,8 @@
   "category": "internet",
   "class": "rss",
   "tags": {
-    "en": ["internet", "news", "nos", "nu.nl", "rss", "soccer", "vi"],
-    "nl": ["internet", "nieuws", "nos", "nu.nl", "rss", "voetbal", "vi"]
+    "en": ["internet", "news", "nos", "nu.nl", "rss", "feed", "reader" ],
+    "nl": ["internet", "nieuws", "nos", "nu.nl", "rss", "feed", "reader" ]
   },
   "language": {
     "en": "en",
