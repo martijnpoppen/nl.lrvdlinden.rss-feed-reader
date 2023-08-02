@@ -45,6 +45,13 @@ class viApp extends Homey.App {
                     [, latestItem] = feed.items;
                 }
 
+        this.parser = new Parser({
+            customFields: {
+                item: [
+                    ["media:thumbnail", "thumbnail"]
+                  ]
+            }
+          });
                 this.log(`[checkRssFeed] - got latestItem:`, latestItem);
                 const { title, link, content, pubDate, thumbnail } = latestItem;
                 const imageUrl = thumbnail && thumbnail.$ && thumbnail.$.url || "";
