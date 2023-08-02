@@ -25,7 +25,14 @@ class rssfeedreaderApp extends Homey.App {
         this.parser = new Parser();
         this.maxFeeds = 10; // Maximale aantal feeds toegestaan
         this.feedUrls = [];
-
+        this.parser = new Parser({
+            customFields: {
+                item: [
+                    ["media:thumbnail", "thumbnail"]
+                  ]
+            }
+          });
+        
         // Haal de feed URLs op uit de instellingen
         this.loadFeedUrls();
 
