@@ -47,16 +47,16 @@ class RssFeedReaderApp extends Homey.App {
         // Check if the setting 'feed_urls' has changed
         this.log('test');
 
-        // if ('feed_urls' in changedKeys && JSON.stringify(newSettings.feed_urls) !== JSON.stringify(oldSettings.feed_urls)) {
-        //     this.log('[onSettingsFeedUrls] - Feed URLs have been updated:', newSettings.feed_urls);
-        //     this.feedUrls = newSettings.feed_urls || [];
+        if ('feed_urls' in changedKeys && JSON.stringify(newSettings.feed_urls) !== JSON.stringify(oldSettings.feed_urls)) {
+             this.log('[onSettingsFeedUrls] - Feed URLs have been updated:', newSettings.feed_urls);
+             this.feedUrls = newSettings.feed_urls || [];
         //     // Limit the number of feeds to the maximum allowed
-        //     this.feedUrls = this.feedUrls.slice(0, this.maxFeeds);
+             this.feedUrls = this.feedUrls.slice(0, this.maxFeeds);
         //     // Save the feed URLs in settings
-        //     this.homey.settings.set('feed_urls', this.feedUrls);
+             this.homey.settings.set('feed_urls', this.feedUrls);
         //     // Fetch the new feeds
-        //     this.checkRssFeeds();
-        // }
+             this.checkRssFeeds();
+         }
     }
 
     loadFeedUrls() {
