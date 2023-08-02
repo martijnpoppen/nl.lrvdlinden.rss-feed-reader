@@ -28,7 +28,7 @@
             margin-bottom: 5px;
         }
 
-        .removeButton, .addButton {
+        .removeButton, .addButton, .saveButton {
             background-color: #39f;
             border: none;
             color: white;
@@ -51,14 +51,7 @@
         }
 
         .saveButton {
-            background-color: #4CAF50;
-            margin-top: 20px;
-            color: white;
-            font-size: 16px;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
+            background-color: #f0ad4e;
         }
     </style>
     <link rel="stylesheet" href="/app/style.css">
@@ -83,7 +76,7 @@
         function onHomeyReady(Homey) {
             Homey.ready();
 
-            // Fill in the feed URLs if there are already saved settings
+            // Vul de feed URL's in als er al instellingen zijn opgeslagen
             const feedUrls = Homey.get('settings.feed_urls') || [];
 
             const container = document.getElementById('feedUrlsContainer');
@@ -117,8 +110,14 @@
         function saveFeedUrls() {
             const feedUrlElements = document.querySelectorAll('[name="feed_urls"]');
             const feedUrls = Array.from(feedUrlElements).map((element) => element.value);
-            Homey.set('settings.feed_urls', feedUrls);
-            alert('Instellingen opgeslagen!');
+            Homey.ready(function() {
+                Homey.set('settings.feed_urls', feedUrls).then(() => {
+                    alert('Instellingen opgeslagen!');
+                }).catch((error) => {
+                    alert('Er is een fout opgetreden bij het opslaan van de instellingen.');
+                    console.error(error);
+                });
+            });
         }
     </script>
 </body>
