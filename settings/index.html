@@ -51,6 +51,11 @@
         }
     </style>
     <link rel="stylesheet" href="/app/style.css">
+    <script
+      type="text/javascript"
+      src="/homey.js"
+      data-origin="settings"
+    ></script>
 </head>
 <body>
     <h2>RSS Feed Instellingen</h2>
@@ -63,6 +68,24 @@
     </div>
     <button class="addButton" onclick="addFeedUrl()">Nog een feed toevoegen</button>
     <script>
+        function onHomeyReady(Homey) {
+            Homey.ready();
+
+            // Vul de feed URL's in als er al instellingen zijn opgeslagen
+            const feedUrls = Homey.get('settings.feed_urls') || [];
+
+            const container = document.getElementById('feedUrlsContainer');
+            feedUrls.forEach((url) => {
+                const item = document.createElement('div');
+                item.classList.add('feedUrlItem');
+                item.innerHTML = `
+                <input type="text" name="feed_urls" placeholder="Voer RSS-feed URL in" value="${url}" />
+                <button class="removeButton" onclick="removeFeedUrl(this)">Verwijder</button>
+            `;
+                container.appendChild(item);
+            });
+        }
+
         function addFeedUrl() {
             const container = document.getElementById('feedUrlsContainer');
             const item = document.createElement('div');
@@ -78,19 +101,6 @@
             const container = document.getElementById('feedUrlsContainer');
             container.removeChild(button.parentNode);
         }
-
-        // Vul de feed URL's in als er al instellingen zijn opgeslagen
-        const feedUrls = Homey.get('settings.feed_urls') || [];
-        const container = document.getElementById('feedUrlsContainer');
-        feedUrls.forEach((url) => {
-            const item = document.createElement('div');
-            item.classList.add('feedUrlItem');
-            item.innerHTML = `
-                <input type="text" name="feed_urls" placeholder="Voer RSS-feed URL in" value="${url}" />
-                <button class="removeButton" onclick="removeFeedUrl(this)">Verwijder</button>
-            `;
-            container.appendChild(item);
-        });
     </script>
 </body>
 </html>

@@ -33,6 +33,12 @@
     "email": "homey@vdlinden.xyz"
   },
   "contributors": {
+    "developers": [
+      {
+        "name": "Menno van Hout",
+        "email": "info@mennovanhout.nl"
+      }
+    ],
     "translators": [
       {
         "name": "🇬🇧 Léon"
