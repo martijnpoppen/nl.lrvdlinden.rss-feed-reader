@@ -1,67 +1,49 @@
 'use strict';
+
 const Homey = require('homey');
 const Parser = require('rss-parser');
 
-class rssfeedreaderApp extends Homey.App {
-  log() {
-    console.log.bind(this, '[log]').apply(this, arguments);
-  }
-
-  error() {
-    console.error.bind(this, '[error]').apply(this, arguments);
-  }
-
-  // -------------------- INIT ----------------------
-
-  onInit() {
-    this.log(`[onInit] ${this.homey.manifest.id} - ${this.homey.manifest.version} gestart...`);
+class RssFeedReaderApp extends Homey.App {
+  async onInit() {
+    this.log(`[onInit] ${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
 
     this.triggerNewArticle = this.homey.flow.getTriggerCard('new_article');
-
     this.receivedArticleLink = null;
-    this.receivedVideoUrls = new Set(); // Een Set om de ontvangen videolinks bij te houden
+    this.receivedVideoUrls = new Set(); // A Set to keep track of received video links
 
-    this.checkInterval = 5 * 60 * 1000; // 5 minuten
+    this.checkInterval = 5 * 60 * 1000; // 5 minutes
     this.parser = new Parser();
-    this.maxFeeds = 10; // Maximale aantal feeds toegestaan
+    this.maxFeeds = 10; // Maximum allowed number of feeds
     this.feedUrls = [];
-    this.parser = new Parser({
-      customFields: {
-        item: [
-          ["media:thumbnail", "thumbnail"]
-        ]
-      }
-    });
 
-    // Haal de feed URLs op uit de instellingen
+    // Load the feed URLs from settings
     this.loadFeedUrls();
 
-    // Voeg een callback toe voor instellingenupdates
+    // Add a callback for settings updates
     this.homey.settings.on('set', this.onSettingsFeedUrls.bind(this));
 
-    // Controleer de RSS-feeds op basis van de opgegeven feed URLs
+    // Check the RSS feeds based on the provided feed URLs
     this.checkRssFeeds();
+
+    // Register the settings page
+    this.homey.settings.getPage('settings_page', 'index.html');
   }
 
   async onSettingsFeedUrls({ newSettings, oldSettings, changedKeys }) {
-    // Controleer of de instelling 'feed_urls' is gewijzigd
     if ('feed_urls' in changedKeys && JSON.stringify(newSettings.feed_urls) !== JSON.stringify(oldSettings.feed_urls)) {
-      this.log('[onSettingsFeedUrls] - Feed URLs zijn bijgewerkt:', newSettings.feed_urls);
+      this.log('[onSettingsFeedUrls] - Feed URLs have been updated:', newSettings.feed_urls);
       this.feedUrls = newSettings.feed_urls || [];
-      // Beperk het aantal feeds tot het maximum
+      // Limit the number of feeds to the maximum
       this.feedUrls = this.feedUrls.slice(0, this.maxFeeds);
-      // Sla de feed URLs op in de instellingen
+      // Save the feed URLs in the settings
       this.homey.settings.set('feed_urls', this.feedUrls);
-      // Haal de nieuwe feeds op
+      // Retrieve the new feeds
       this.checkRssFeeds();
     }
   }
 
   loadFeedUrls() {
-    // Haal de opgeslagen feed URLs op uit de instellingen
     this.feedUrls = this.homey.settings.get('feed_urls') || [];
-
-    // Beperk het aantal feeds tot het maximum
     this.feedUrls = this.feedUrls.slice(0, this.maxFeeds);
   }
 
@@ -74,11 +56,11 @@ class rssfeedreaderApp extends Homey.App {
           let [latestItem] = feed.items;
 
           if (latestItem.title && (latestItem.title.includes('RTL Nieuws') || latestItem.title.includes('RTL Weer'))) {
-            this.log(`[checkRssFeeds] - sla laatste item over vanwege RTL in de titel:`, latestItem.title);
+            this.log(`[checkRssFeeds] - Skipping latest item due to RTL in the title:`, latestItem.title);
             [, latestItem] = feed.items;
           }
 
-          this.log(`[checkRssFeeds] - kreeg laatste item:`, latestItem);
+          this.log(`[checkRssFeeds] - Got latest item:`, latestItem);
           const { title, link, content, pubDate, thumbnail } = latestItem;
           const imageUrl = thumbnail && thumbnail.$ && thumbnail.$.url || "";
           const data = {
@@ -89,24 +71,21 @@ class rssfeedreaderApp extends Homey.App {
             imageUrl
           };
 
-          this.log(`[checkRssFeeds] - trigger nieuw artikel Data:`, data);
+          this.log(`[checkRssFeeds] - Trigger new article data:`, data);
 
-          // Controleer of het nieuwe artikel een andere pubDate heeft dan het laatste getriggerde artikel
           if (pubDate !== this.lastTriggeredPubDate) {
-            this.log(`[checkRssFeeds] - trigger nieuw artikel Data:`, data);
-            this.triggerNewArticle.trigger(data).catch((err) => this.error('[checkRssFeeds] - Fout bij triggerNewArticle', err));
-
-            // Werk de laatste getriggerde pubDate bij naar de huidige pubDate
+            this.log(`[checkRssFeeds] - Trigger new article data:`, data);
+            this.triggerNewArticle.trigger(data).catch((err) => this.error('[checkRssFeeds] - Error in triggerNewArticle', err));
             this.lastTriggeredPubDate = pubDate;
           } else {
-            this.log(`[checkRssFeeds] - Artikel is al getriggerd, overslaan...`);
+            this.log(`[checkRssFeeds] - Article already triggered, skipping...`);
           }
         }
       }
     } catch (err) {
-      this.error(`[checkRssFeeds] - Fout bij ophalen RSS-feed:`, err);
+      this.error(`[checkRssFeeds] - Error in retrieving RSS-feed:`, err);
     }
   }
 }
 
-module.exports = rssfeedreaderApp;
+module.exports = RssFeedReaderApp;
