@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://homey.app/nl-nl/apps/author/5d4da77a2c836a50f6936070/page/0/">
-    <img src="https://www.blokboek.com/wp-content/uploads/2019/09/vi-logo-768x384.jpg" />
+    <img src="https://www.noen.at/image/650x366-c-jpg/3992195/shutterstock_112614899.jpg" />
   </a>
 </p>
 
