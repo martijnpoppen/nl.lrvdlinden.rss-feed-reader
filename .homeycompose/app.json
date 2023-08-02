@@ -27,6 +27,25 @@
     "en": "en",
     "nl": "nl"
   },
+    "settings": [
+    {
+      "id": "feed_urls",
+      "type": "text",
+      "label": {
+        "en": "RSS Feed URLs",
+        "nl": "RSS Feed URL's"
+      },
+      "multiple": true,
+      "placeholder": {
+        "en": "Enter RSS feed URL",
+        "nl": "Voer RSS-feed URL in"
+      },
+      "default": [
+        "https://www.vi.nl/feed/nieuws"
+      ],
+      "maximum": 10
+    }
+  ],
   "permissions": [],
   "author": {
     "name": "Léon van der Linden",
