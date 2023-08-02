@@ -25,7 +25,14 @@ class viApp extends Homey.App {
         this.checkInterval = 5 * 60 * 1000; // 5 minutes
         this.parser = new Parser();
         this.feedUrl = 'https://www.vi.nl/feed/nieuws';
-
+        this.parser = new Parser({
+            customFields: {
+                item: [
+                    ["media:thumbnail", "thumbnail"]
+                  ]
+            }
+          });
+        
         setInterval(async () => {
             this.checkRssFeed();
         }, this.checkInterval);
@@ -45,13 +52,6 @@ class viApp extends Homey.App {
                     [, latestItem] = feed.items;
                 }
 
-        this.parser = new Parser({
-            customFields: {
-                item: [
-                    ["media:thumbnail", "thumbnail"]
-                  ]
-            }
-          });
                 this.log(`[checkRssFeed] - got latestItem:`, latestItem);
                 const { title, link, content, pubDate, thumbnail } = latestItem;
                 const imageUrl = thumbnail && thumbnail.$ && thumbnail.$.url || "";
