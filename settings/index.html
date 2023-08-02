@@ -49,6 +49,17 @@
         .addButton {
             background-color: #4CAF50;
         }
+
+        .saveButton {
+            background-color: #4CAF50;
+            margin-top: 20px;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
     </style>
     <link rel="stylesheet" href="/app/style.css">
     <script
@@ -67,11 +78,12 @@
         <!-- Hier worden de feed URL's dynamisch ingevuld -->
     </div>
     <button class="addButton" onclick="addFeedUrl()">Nog een feed toevoegen</button>
+    <button class="saveButton" onclick="saveFeedUrls()">Opslaan</button>
     <script>
         function onHomeyReady(Homey) {
             Homey.ready();
 
-            // Vul de feed URL's in als er al instellingen zijn opgeslagen
+            // Fill in the feed URLs if there are already saved settings
             const feedUrls = Homey.get('settings.feed_urls') || [];
 
             const container = document.getElementById('feedUrlsContainer');
@@ -100,6 +112,13 @@
         function removeFeedUrl(button) {
             const container = document.getElementById('feedUrlsContainer');
             container.removeChild(button.parentNode);
+        }
+
+        function saveFeedUrls() {
+            const feedUrlElements = document.querySelectorAll('[name="feed_urls"]');
+            const feedUrls = Array.from(feedUrlElements).map((element) => element.value);
+            Homey.set('settings.feed_urls', feedUrls);
+            alert('Instellingen opgeslagen!');
         }
     </script>
 </body>
