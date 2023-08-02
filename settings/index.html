@@ -1,108 +1,95 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <title>P2000 Instellingen</title>
+    <title>RSS Feed Instellingen</title>
     <style>
-        .tab {
-            display: none;
+        body {
+            font-family: Arial, sans-serif;
         }
 
-        .tablink {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #f2f2f2;
-            cursor: pointer;
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        #feedUrlsContainer {
+            max-height: 300px;
+            overflow-y: auto;
             border: 1px solid #ccc;
-            border-bottom: none;
-            border-top-left-radius: 5px;
-            border-top-right-radius: 5px;
-            margin-right: 5px;
-            margin-bottom: 20px;
+            padding: 10px;
         }
 
-        .active {
-            background-color: #ccc;
+        .feedUrlItem {
+            margin-bottom: 5px;
+        }
+
+        .removeButton, .addButton {
+            background-color: #39f;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .removeButton {
+            background-color: #f44336;
+        }
+
+        .addButton {
+            background-color: #4CAF50;
         }
     </style>
 </head>
-
 <body>
+    <h2>RSS Feed Instellingen</h2>
     <div>
-        <div class="tablink" onclick="openTab(event, 'instellingen')">Instellingen</div>
-        <div class="tablink" onclick="openTab(event, 'informatie')">Informatie</div>
-        <div class="tablink" onclick="openTab(event, 'apps')">Apps</div>
+        <p>Voer de RSS-feed URL's in die je wilt volgen. Maximaal 10 feeds zijn toegestaan.</p>
+        <p>Elke feed moet op een nieuwe regel staan.</p>
     </div>
-
-    <div class="tab" id="instellingen">
-        <h1>Instellingen voor P2000</h1>
-        <p>- Maak een apparaat aan.</p>
-        <p>- Ga vervolgens naar de instellingen van jouw zojuist aangemaakte P2000 apparaat.</p>
-        <p>- In ieder veld kun je een enkele waarde opgeven, of meerdere, gescheiden door punt-komma's.</p>
-        <p>- Zorg dat je altijd een veiligheidsregio invult.</p>
-        <p>- Vergeet niet om eerst een Flow aan te maken die iets doet met deze signalering.</p>
+    <div id="feedUrlsContainer">
+        <!-- Hier worden de feed URL's dynamisch ingevuld -->
     </div>
-
-    <div class="tab" id="informatie">
-        <h1>Extra informatie</h1>
-        <p><a href="https://www.p2000monitor.eu/codes.html" target="_blank">Afkortingen en termen</a></p>
-        <p><a href="https://www.politie.nl/informatie/informatie-over-de-112nl-app.html" target="_blank">Wanneer bel je 112?</a></p>
-        <p><a href="https://www.brandweer.nl/onderwerpen/storm-en-wateroverlast/" target="_blank">Wat te doen bij storm en waterschade?</a></p>
-        <p><a href="https://www.politie.nl/informatie/informatie-over-de-112nl-app.html" target="_blank">112NL app</a></p>
-    </div>
-
-    <div class="tab" id="apps">
-        <h1>Mijn Apps</h1>
-        <p>Alle Homey apps gemaakt door Léon van der Linden:</p>
-        <a href="https://homey.app/nl-nl/apps/author/5d4da77a2c836a50f6936070/page/0/" target="_blank">Ga naar Homey Store of klik op één van onderstaande afbeeldingen.</a><br>
-
-        <div class="image-section">
-            <a href="https://homey.app/nl-nl/app/nl.lrvdlinden.lifeliner/Lifeliner/" target="_blank">
-                <img src="https://cdn.filestackcontent.com/compress=m:true/quality=v:80/cache=expiry:max/no_metadata/VcXqLhPaTVCHSkSE7qjs" alt="Lifeliner" style="width: 350px; height: auto;">
-            </a>
-        </div>
-
-        <div class="image-section">
-            <a href="https://homey.app/nl-nl/app/nl.lrvdlinden.p2000/P2000/" target="_blank">
-                <img src="https://cdn.filestackcontent.com/compress=m:true/quality=v:80/cache=expiry:max/no_metadata/kQTlY0K1S8mJe8vBVdlL" alt="P2000" style="width: 350px; height: auto;">
-            </a>
-        </div>
-
-        <div class="image-section">
-            <a href="https://homey.app/nl-nl/app/nl.lrvdlinden.signal/Signal/" target="_blank">
-                <img src="https://cdn.filestackcontent.com/compress=m:true/quality=v:80/cache=expiry:max/no_metadata/Qul1j8NXSaulPWOOVTH5" alt="Signal Messenger" style="width: 350px; height: auto;">
-            </a>
-        </div>
-        <div class="image-section">
-            <a href="https://homey.app/nl-nl/app/nl.lrvdlinden.fb/Facebook-Messenger/test/" target="_blank">
-                <img src="https://cdn.filestackcontent.com/compress=m:true/quality=v:80/cache=expiry:max/no_metadata/Qul1j8NXSaulPWOOVTH5" alt="Signal Messenger" style="width: 350px; height: auto;">
-            </a>
-        </div>
-    </div>
-
-    <script type="text/javascript">
-        // Tabbed view functionality
-        function openTab(evt, tabName) {
-            const tabcontent = document.getElementsByClassName("tab");
-            for (let i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-
-            const tablinks = document.getElementsByClassName("tablink");
-            for (let i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.classList.add("active");
+    <button class="addButton" onclick="addFeedUrl()">Nog een feed toevoegen</button>
+    <script>
+        function addFeedUrl() {
+            const container = document.getElementById('feedUrlsContainer');
+            const item = document.createElement('div');
+            item.classList.add('feedUrlItem');
+            item.innerHTML = `
+                <input type="text" name="feed_urls" placeholder="Voer RSS-feed URL in" />
+                <button class="removeButton" onclick="removeFeedUrl(this)">Verwijder</button>
+            `;
+            container.appendChild(item);
         }
 
-        // Open standaard de Instellingen tab
-        document.getElementById("instellingen").style.display = "block";
-        document.getElementsByClassName("tablink")[0].classList.add("active");
+        function removeFeedUrl(button) {
+            const container = document.getElementById('feedUrlsContainer');
+            container.removeChild(button.parentNode);
+        }
+
+        // Vul de feed URL's in als er al instellingen zijn opgeslagen
+        const feedUrls = Homey.get('settings.feed_urls') || [];
+        const container = document.getElementById('feedUrlsContainer');
+        feedUrls.forEach((url) => {
+            const item = document.createElement('div');
+            item.classList.add('feedUrlItem');
+            item.innerHTML = `
+                <input type="text" name="feed_urls" placeholder="Voer RSS-feed URL in" value="${url}" />
+                <button class="removeButton" onclick="removeFeedUrl(this)">Verwijder</button>
+            `;
+            container.appendChild(item);
+        });
     </script>
 </body>
-
 </html>
-
