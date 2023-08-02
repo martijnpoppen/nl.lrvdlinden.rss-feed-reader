@@ -30,16 +30,22 @@ class rssfeedreaderApp extends Homey.App {
         this.loadFeedUrls();
 
         // Voeg een callback toe voor instellingenupdates
-        this.homey.settings.on('set', this.onSettings.bind(this));
+        this.homey.settings.on('set', this.onSettingsFeedUrls.bind(this));
 
-        // ... (bestaande code)
+        // Controleer de RSS-feeds op basis van de opgegeven feed URLs
+        this.checkRssFeeds();
     }
 
-    async onSettings({ key, value }) {
-        if (key === 'feed_urls') {
-            this.log(`[onSettings] - Feed URLs zijn bijgewerkt:`, value);
-            this.feedUrls = value;
-            // Controleer de RSS-feeds wanneer de feed URLs zijn bijgewerkt
+    async onSettingsFeedUrls({ newSettings, oldSettings, changedKeys }) {
+        // Controleer of de instelling 'feed_urls' is gewijzigd
+        if ('feed_urls' in changedKeys && JSON.stringify(newSettings.feed_urls) !== JSON.stringify(oldSettings.feed_urls)) {
+            this.log('[onSettingsFeedUrls] - Feed URLs zijn bijgewerkt:', newSettings.feed_urls);
+            this.feedUrls = newSettings.feed_urls || [];
+            // Beperk het aantal feeds tot het maximum
+            this.feedUrls = this.feedUrls.slice(0, this.maxFeeds);
+            // Sla de feed URLs op in de instellingen
+            this.homey.settings.set('feed_urls', this.feedUrls);
+            // Haal de nieuwe feeds op
             this.checkRssFeeds();
         }
     }
@@ -92,20 +98,6 @@ class rssfeedreaderApp extends Homey.App {
             }
         } catch (err) {
             this.error(`[checkRssFeeds] - Fout bij ophalen RSS-feed:`, err);
-        }
-    }
-
-    async onSettings({ newSettings, oldSettings, changedKeys }) {
-        // Controleer of de instelling 'feed_urls' is gewijzigd
-        if ('feed_urls' in changedKeys && JSON.stringify(newSettings.feed_urls) !== JSON.stringify(oldSettings.feed_urls)) {
-            this.log('[onSettings] - Feed URLs zijn bijgewerkt:', newSettings.feed_urls);
-            this.feedUrls = newSettings.feed_urls || [];
-            // Beperk het aantal feeds tot het maximum
-            this.feedUrls = this.feedUrls.slice(0, this.maxFeeds);
-            // Sla de feed URLs op in de instellingen
-            this.homey.settings.set('feed_urls', this.feedUrls);
-            // Haal de nieuwe feeds op
-            this.checkRssFeeds();
         }
     }
 }
