@@ -61,18 +61,15 @@
   "settings": [
     {
       "id": "feed_urls",
-      "type": "list",
+      "type": "text",
       "label": {
         "en": "RSS Feed URLs",
         "nl": "RSS Feed URL's"
       },
-      "items": {
-        "type": "text",
-        "multiple": true,
-        "placeholder": {
-          "en": "Enter RSS feed URL",
-          "nl": "Voer RSS-feed URL in"
-        }
+      "multiple": true,
+      "placeholder": {
+        "en": "Enter RSS feed URL",
+        "nl": "Voer RSS-feed URL in"
       },
       "defaultValue": [
         "https://www.vi.nl/feed/nieuws"
