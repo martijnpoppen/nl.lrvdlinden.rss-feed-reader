@@ -1,13 +1,13 @@
 {
-  "id": "nl.lrvdlinden.vi",
-  "version": "1.0.2",
+  "id": "nl.lrvdlinden.rss-feed-reader",
+  "version": "1.0.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": ["local"],
   "brandColor": "#1476C6",
   "name": {
-    "en": "VI Nieuws",
-    "nl": "VI Nieuws"
+    "en": "RSS Feed Reader",
+    "nl": "RSS Feed Reader"
   },
   "images": {
     "large": "/assets/images/large.jpg",
