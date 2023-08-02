@@ -96,7 +96,7 @@
       "type": "string"
     },
     {
-      "name": "media",
+      "name": "imageUrl",
       "title": {
         "en": "Article Image URL",
         "nl": "Artikel Afbeelding URL",
