@@ -4,7 +4,7 @@
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": ["local"],
-  "brandColor": "#f7882e",
+  "brandColor": "#1476C6",
   "name": {
     "en": "RSS Feed Reader",
     "nl": "RSS Feed Reader"
@@ -20,32 +20,13 @@
   "category": "internet",
   "class": "rss",
   "tags": {
-    "en": ["internet", "news", "nos", "nu.nl", "rss", "feed", "reader" ],
-    "nl": ["internet", "nieuws", "nos", "nu.nl", "rss", "feed", "reader" ]
+    "en": ["internet", "news", "nos", "nu.nl", "rss", "soccer", "vi"],
+    "nl": ["internet", "nieuws", "nos", "nu.nl", "rss", "voetbal", "vi"]
   },
   "language": {
     "en": "en",
     "nl": "nl"
   },
-  "settings": [
-    {
-      "id": "feed_urls",
-      "type": "text",
-      "label": {
-        "en": "RSS Feed URLs",
-        "nl": "RSS Feed URL's"
-      },
-      "multiple": true,
-      "placeholder": {
-        "en": "Enter RSS feed URL",
-        "nl": "Voer RSS-feed URL in"
-      },
-      "default": [
-        "https://www.vi.nl/feed/nieuws"
-      ],
-      "maximum": 10
-    }
-  ],
   "permissions": [],
   "author": {
     "name": "Léon van der Linden",
@@ -76,5 +57,24 @@
   },
   "homepage": "https://shor.by/LRvdLinden",
   "support": "https://community.homey.app/t/app-pro-vi-nieuws/85738",
-  "homeyCommunityTopicId": 85738
+  "homeyCommunityTopicId": 85738,
+  "settings": [
+    {
+      "id": "feed_urls",
+      "type": "text",
+      "title": {
+        "en": "RSS Feed URLs",
+        "nl": "RSS Feed URL's"
+      },
+      "multiple": true,
+      "placeholder": {
+        "en": "Enter RSS feed URL",
+        "nl": "Voer RSS-feed URL in"
+      },
+      "default": [
+        "https://www.vi.nl/feed/nieuws"
+      ],
+      "maximum": 10
+    }
+  ]
 }
