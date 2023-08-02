@@ -49,10 +49,6 @@
         .addButton {
             background-color: #4CAF50;
         }
-
-        .saveButton {
-            background-color: #f0ad4e;
-        }
     </style>
     <link rel="stylesheet" href="/app/style.css">
     <script
@@ -73,20 +69,20 @@
     <button class="addButton" onclick="addFeedUrl()">Nog een feed toevoegen</button>
     <button class="saveButton" onclick="saveFeedUrls()">Opslaan</button>
     <script>
-        function onHomeyReady(Homey) {
-            Homey.ready();
+        function onHomeyReady(settings) {
+            settings.ready();
 
             // Vul de feed URL's in als er al instellingen zijn opgeslagen
-            const feedUrls = Homey.get('settings.feed_urls') || [];
+            const feedUrls = settings.get('feed_urls') || [];
 
             const container = document.getElementById('feedUrlsContainer');
             feedUrls.forEach((url) => {
                 const item = document.createElement('div');
                 item.classList.add('feedUrlItem');
                 item.innerHTML = `
-                <input type="text" name="feed_urls" placeholder="Voer RSS-feed URL in" value="${url}" />
-                <button class="removeButton" onclick="removeFeedUrl(this)">Verwijder</button>
-            `;
+                    <input type="text" name="feed_urls" placeholder="Voer RSS-feed URL in" value="${url}" />
+                    <button class="removeButton" onclick="removeFeedUrl(this)">Verwijder</button>
+                `;
                 container.appendChild(item);
             });
         }
@@ -110,8 +106,8 @@
         function saveFeedUrls() {
             const feedUrlElements = document.querySelectorAll('[name="feed_urls"]');
             const feedUrls = Array.from(feedUrlElements).map((element) => element.value);
-            Homey.ready(function() {
-                Homey.set('settings.feed_urls', feedUrls).then(() => {
+            settings.ready(function() {
+                settings.set('feed_urls', feedUrls).then(() => {
                     alert('Instellingen opgeslagen!');
                 }).catch((error) => {
                     alert('Er is een fout opgetreden bij het opslaan van de instellingen.');
