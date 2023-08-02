@@ -4,7 +4,7 @@
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": ["local"],
-  "brandColor": "#1476C6",
+  "brandColor": "#f7882e",
   "name": {
     "en": "RSS Feed Reader",
     "nl": "RSS Feed Reader"
