@@ -1,12 +1,12 @@
 {
-  "name": "nl.lrvdlinden.vi",
-  "version": "1.0.2",
-  "description": "Up-to-date RTL nieuws in The Netherlands.",
+  "name": "nl.lrvdlinden.rss-feed-reader",
+  "version": "1.0.0",
+  "description": "RSS Feed Reader app",
   "author": "homey@vdlinden.xyz",
   "license": "GPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lrvdlinden/nl.lrvdlinden.vi"
+    "url": "nl.lrvdlinden.rss-feed-reader"
   },
   "main": "app.js",
   "scripts": {
