@@ -2,5 +2,13 @@
   "1.0.0": {
     "en": "First Release",
     "nl": "Eerste Release"  
+  },
+   "1.0.1": {
+    "en": "Feed improvement",
+    "nl": "Feed improvement"   
+   },
+     "1.0.2": {
+    "en": "Fix image token",
+    "nl": "Fix image token" 
   }
 }
