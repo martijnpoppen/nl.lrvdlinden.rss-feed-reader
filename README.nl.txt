@@ -1,7 +1,6 @@
-VI voor Homey
+RSS Feed Reader voor Homey
 
-Deze app geeft Homey de mogelijkheid om te reageren op berichten van de Nederlandse voetbal nieuwszender VI.
-Houd er rekening mee dat alle berichten die op dit netwerk worden verzonden in het Nederlands zijn.
+Deze app geeft Homey de mogelijkheid om te reageren op de RSS Feed die jij hebt ingesteld.
 - Gebruik in flow om iets te triggeren, bijvoorbeeld spraak zodat Homey je vertelt wat er gebeurt.
 
 Gebruik ⚙
@@ -9,9 +8,10 @@ Gebruik ⚙
 
 Huidige functies: 🔧
 - [x] Realtime meldingen (vergeet niet om een stroom aan te maken)
+- [x] 
 
 
 Ondersteunde talen: nederland:
 - 🇳🇱 Nederlands
 - 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Engels
-
+- :dui
