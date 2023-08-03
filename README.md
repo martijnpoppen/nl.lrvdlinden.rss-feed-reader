@@ -27,7 +27,9 @@ This app gives Homey the ability to respond to messages of any RSS fees
 ---
 
 ## Usage ⚙
-- Install this app on your Homey.
+- - Install this app on your Homey.
+- Add RSS Feed Reader as a new device.
+- Go to your device's settings and enter an rss feed.
 
 ---
 
@@ -38,14 +40,23 @@ This app gives Homey the ability to respond to messages of any RSS fees
 ---
 
 ## Supported Languages:netherlands:
-- 🇳🇱 Dutch
-- 🏴󠁧󠁢󠁥󠁮󠁧󠁿 English
+- English 🏴󠁧󠁢
+- Dutch 
+- German 
+- french
+- Italian
+- Swedish
+- Norwegian
+- Spanish
+- Danish
+- Russian 
+- Polish 
 
   
 
 ---
 ## Changelog
-- 1.0.0 (1 aug 2023) First Release
+- 1.0.0 TEST (3 aug 2023) First Release
 
 <details>
 <summary>More changelog</summary>
