@@ -11,7 +11,7 @@ Huidige functies: 🔧
 - [x] 
 
 
-Ondersteunde talen: nederland:
+Ondersteunde talen :netherlands:
 - 🇳🇱 Nederlands
 - 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Engels
-- :dui
+- :germany: Duits
