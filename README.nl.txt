@@ -12,6 +12,14 @@ Huidige functies: 🔧
 
 
 Ondersteunde talen :netherlands:
-- 🇳🇱 Nederlands
-- 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Engels
-- :germany: Duits
+en: English
+nl: Dutch
+de: German
+fr: French
+it: Italian
+sv: Swedish
+no: Norwegian
+es: Spanish
+da: Danish
+ru: Russian
+pl: Polish
