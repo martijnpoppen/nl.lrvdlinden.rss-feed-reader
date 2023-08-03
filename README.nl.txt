@@ -8,7 +8,6 @@ Gebruik ⚙
 
 Huidige functies: 🔧
 - [x] Realtime meldingen (vergeet niet om een stroom aan te maken)
-- [x] 
 
 
 Ondersteunde talen :netherlands:
