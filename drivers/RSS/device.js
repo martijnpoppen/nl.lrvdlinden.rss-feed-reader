@@ -25,7 +25,7 @@ class RSSDevice extends Device {
                 item: [
                     ['media:thumbnail', 'customImage'],
                     ['media:content', 'customImage'],
-                    ['encslosure', 'customImage']
+                    ['enclosure', 'customImage']
                 ]
             }
         });
