@@ -18,5 +18,13 @@
     "1.0.4": {
       "nl": "Minor bug fix",
       "en": "Kleine verbeteringen"
+    },
+    "1.0.5": {
+      "nl": "Fix trigger card and imageUrl",
+      "en": "Fix trigger card and imageUrl"
+    },
+    "1.0.6": {
+      "nl": "Nieuw: inestellingen pagina door @martijnpoppen Fix: Feed verbeteringen",
+      "en": "New: Settings page by @martijnpoppen Fix: Feed inprovement""
 }
 }   
