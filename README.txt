@@ -1,18 +1,18 @@
-RSS Feed Reader voor Homey
+RSS Feed Reader for Homey
 
-Deze app geeft Homey de mogelijkheid om te reageren op de RSS Feed die jij hebt ingesteld.
-- Gebruik in flow om iets te triggeren, bijvoorbeeld spraak zodat Homey je vertelt wat er gebeurt.
+This app allows Homey to respond to the RSS Feed you set up.
+- Use in flow to trigger something, for example speech so Homey tells you what is happening.
 
-Gebruik ⚙
-- Installeer deze app op je Homey.
-- Voeg RSS Feed Reader toe als een nieuw device.
-- Ga naar de instellingen van je device en vul een rss feed in.
+Use ⚙
+- Install this app on your Homey.
+- Add RSS Feed Reader as a new device.
+- Go to your device's settings and enter an rss feed.
 
-Huidige functies: 🔧
-- [x] Realtime meldingen (vergeet niet om een stroom aan te maken)
+Current features 🔧
+- [x] Realtime notifications (don't forget to create a stream)
 
 
-Ondersteunde talen :netherlands:
+Supported languages :netherlands:
 en: English
 nl: Dutch
 de: German
