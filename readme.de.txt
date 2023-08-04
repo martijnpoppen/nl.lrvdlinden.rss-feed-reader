@@ -1,3 +1,5 @@
+RSS Feed Reader for Homey
+
 Diese App ermöglicht es Homey, auf den von Ihnen eingerichteten RSS-Feed zu reagieren.
 - Verwenden Sie es in Flows, um Aktionen auszulösen, zum Beispiel, dass Homey Ihnen aktuelle Ereignisse mitteilt.
 
