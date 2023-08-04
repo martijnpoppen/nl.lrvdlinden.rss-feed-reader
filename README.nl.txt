@@ -13,14 +13,4 @@ Huidige functies: 🔧
 
 
 Ondersteunde talen :netherlands:
-en: English
-nl: Dutch
-de: German
-fr: French
-it: Italian
-sv: Swedish
-no: Norwegian
-es: Spanish
-da: Danish
-ru: Russian
-pl: Polish
+:uk: Engels :netherlands: Nederlands :de: Duits :fr: Frans :it: Italiaans :sweden: Sweeds :norway: Noors :es: Spaans :denmark: Deens :ru: Rusisch :poland: Pools
