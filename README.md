@@ -40,19 +40,18 @@ This app gives Homey the ability to respond to messages of any RSS fees
 ---
 
 ## Supported Languages:netherlands:
-- English 🏴󠁧󠁢
-- Dutch 
-- German 
-- french
-- Italian
-- Swedish
-- Norwegian
-- Spanish
-- Danish
-- Russian 
-- Polish 
 
-  
+🇬🇧 English
+🇳🇱 Dutch
+🇩🇪 German
+🇫🇷 french
+🇮🇹 Italian
+🇸🇪 Swedish
+🇳🇴 Norwegian
+🇪🇸 Spanish
+🇩🇰 Danish
+🇷🇺 Russian
+🇵🇱 Polish
 
 ---
 ## Changelog
