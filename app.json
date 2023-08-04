@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "nl.lrvdlinden.rss-feed-reader",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": [
@@ -17,8 +17,8 @@
     "small": "/assets/images/small.jpg"
   },
   "description": {
-    "en": "Receive notifications for new articles from VI.",
-    "nl": "Ontvang meldingen voor nieuwe artikelen van VI."
+    "en": "Receive notifications for new articles from any RSS Feed.",
+    "nl": "Ontvang meldingen voor nieuwe artikelen van elke RSS Feed."
   },
   "category": "internet",
   "class": "rss",
@@ -29,8 +29,7 @@
       "nos",
       "nu.nl",
       "rss",
-      "soccer",
-      "vi"
+      "feed"
     ],
     "nl": [
       "internet",
@@ -38,8 +37,7 @@
       "nos",
       "nu.nl",
       "rss",
-      "voetbal",
-      "vi"
+      "feed"
     ]
   },
   "language": {
@@ -52,12 +50,6 @@
     "email": "homey@vdlinden.xyz"
   },
   "contributors": {
-    "developers": [
-      {
-        "name": "Menno van Hout",
-        "email": "info@mennovanhout.nl"
-      }
-    ],
     "translators": [
       {
         "name": "🇬🇧 Léon"
@@ -78,30 +70,11 @@
     }
   },
   "bugs": {
-    "url": "https://community.homey.app/t/app-pro-vi-nieuws/85738"
+    "url": "https://community.homey.app/t/app-pro-rss-feed-reader/85954"
   },
   "homepage": "https://shor.by/LRvdLinden",
-  "support": "https://community.homey.app/t/app-pro-vi-nieuws/85738",
-  "homeyCommunityTopicId": 85738,
-  "settings": [
-    {
-      "id": "feed_urls",
-      "type": "text",
-      "title": {
-        "en": "RSS Feed URLs",
-        "nl": "RSS Feed URL's"
-      },
-      "multiple": true,
-      "placeholder": {
-        "en": "Enter RSS feed URL",
-        "nl": "Voer RSS-feed URL in"
-      },
-      "default": [
-        "https://www.vi.nl/feed/nieuws"
-      ],
-      "maximum": 10
-    }
-  ],
+  "support": "https://community.homey.app/t/app-pro-rss-feed-reader/85954",
+  "homeyCommunityTopicId": 85954,
   "flow": {
     "triggers": [
       {
@@ -120,18 +93,28 @@
           "pl": "Nowy artykuł otrzymany"
         },
         "description": {
-          "en": "Triggered when a new article is received from VI.",
-          "nl": "Geactiveerd wanneer een nieuw artikel wordt ontvangen van VI.",
-          "de": "Ausgelöst, wenn ein neuer Artikel von VI empfangen wird.",
-          "fr": "Déclenché lorsqu'un nouvel article est reçu de VI.",
-          "it": "Attivato quando viene ricevuto un nuovo articolo da VI.",
-          "sv": "Aktiveras när en ny artikel tas emot från VI.",
-          "no": "Utløst når en ny artikkel mottas fra VI.",
-          "es": "Activado cuando se recibe un nuevo artículo de VI.",
-          "da": "Udløst, når en ny artikel modtages fra VI.",
-          "ru": "Срабатывает, когда поступает новая статья от VI.",
-          "pl": "Wyzwalane, gdy zostanie odebrany nowy artykuł z VI."
+          "en": "Triggered when a new article is received from RSS Feed.",
+          "nl": "Geactiveerd wanneer een nieuw artikel wordt ontvangen van RSS Feed.",
+          "de": "Ausgelöst, wenn ein neuer Artikel von RSS Feed empfangen wird.",
+          "fr": "Déclenché lorsqu'un nouvel article est reçu de RSS Feed.",
+          "it": "Attivato quando viene ricevuto un nuovo articolo da RSS Feed.",
+          "sv": "Aktiveras när en ny artikel tas emot från RSS Feed.",
+          "no": "Utløst når en ny artikkel mottas fra RSS Feed.",
+          "es": "Activado cuando se recibe un nuevo artículo de RSS Feed.",
+          "da": "Udløst, når en ny artikel modtages fra RSS Feed.",
+          "ru": "Срабатывает, когда поступает новая статья от RSS Feed.",
+          "pl": "Wyzwalane, gdy zostanie odebrany nowy artykuł z RSS Feed."
         },
+        "platforms": [
+          "local"
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=RSS"
+          }
+        ],
         "tokens": [
           {
             "name": "title",
@@ -170,8 +153,8 @@
           {
             "name": "content",
             "title": {
-              "en": "Article Description",
-              "nl": "Artikel Omschrijving",
+              "en": "Article content",
+              "nl": "Artikel content",
               "de": "Artikelbeschreibung",
               "fr": "Description de l'article",
               "it": "Descrizione dell'articolo",
@@ -204,8 +187,8 @@
           {
             "name": "imageUrl",
             "title": {
-              "en": "Article Image URL",
-              "nl": "Artikel Afbeelding URL",
+              "en": "Image URL",
+              "nl": "Afbeelding URL",
               "de": "Artikelbild-URL",
               "fr": "URL de l'image de l'article",
               "it": "URL dell'immagine dell'articolo",
@@ -221,5 +204,60 @@
         ]
       }
     ]
-  }
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "RSS Feed Reader"
+      },
+      "class": "other",
+      "capabilities": [],
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/RSS/assets/images/small.jpg",
+        "large": "/drivers/RSS/assets/images/large.jpg"
+      },
+      "energy": {},
+      "id": "RSS",
+      "settings": [
+        {
+          "id": "feedUrl",
+          "type": "text",
+          "value": "",
+          "label": {
+            "en": "RSS Feed URL",
+            "nl": "RSS-feed URL",
+            "pl": "Adres URL kanału RSS",
+            "de": "RSS-Feed-URL",
+            "fr": "URL du flux RSS",
+            "it": "URL del feed RSS",
+            "sv": "RSS-flödes-URL",
+            "no": "RSS-strøm-URL",
+            "es": "URL del feed RSS",
+            "da": "RSS-feed-URL",
+            "ru": "URL канала RSS"
+          },
+          "placeholder": "https://example.com/rss-feed"
+        }
+      ]
+    }
+  ]
 }
