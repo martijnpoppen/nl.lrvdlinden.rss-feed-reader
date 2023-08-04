@@ -13,14 +13,4 @@ Current features 🔧
 
 
 Supported languages :netherlands:
-en: English
-nl: Dutch
-de: German
-fr: French
-it: Italian
-sv: Swedish
-no: Norwegian
-es: Spanish
-da: Danish
-ru: Russian
-pl: Polish
+:uk: English :netherlands: Dutch :de: German :fr: french :it: Italian :sweden: Swedish :norway: Norwegian :es: Spanish :denmark: Danish :ru: Russian :poland: Polish
