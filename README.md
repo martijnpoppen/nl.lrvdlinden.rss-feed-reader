@@ -55,13 +55,18 @@ This app gives Homey the ability to respond to messages of any RSS fees
 
 ---
 ## Changelog
-- 1.0.0 TEST (3 aug 2023) First Release
+- 1.0.6 TEST (4 aug 2023) Fix: Broken feed and ImageUrl
 
 <details>
 <summary>More changelog</summary>
 <br><br>
 <pre>
-
+- 1.0.5 (4 aug 2023) Fix: Broken feed and ImageUrl
+- 1.0.4 (3 aug 2023) Minor bug fix
+- 1.0.3 (3 aug 2023) Fix trigger card multiply devices
+- 1.0.2 (3 aug 2023) Fix documentation
+- 1.0.1 (3 aug 2023) Fix documentation
+- 1.0.0 (3 aug 2023) First Release
 
 </pre>
 </details>
