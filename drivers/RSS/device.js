@@ -20,13 +20,7 @@ class RSSDevice extends Device {
     this.receivedVideoUrls = new Set(); // A Set to keep track of received video links
 
     this.checkInterval = 5 * 60 * 1000; // 5 minutes
-    this.parser = new Parser({
-      customFields: {
-        item: [
-          ['enclosure', 'enclosure_url'],
-        ],
-      },
-    });
+    this.parser = new Parser()
 
     try {
       // Check if the feedUrl is available in the settings, otherwise use the default URL
