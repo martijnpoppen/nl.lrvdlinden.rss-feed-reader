@@ -14,18 +14,28 @@
     "pl": "Nowy artykuł otrzymany"
   },
   "description": {
-    "en": "Triggered when a new article is received from VI.",
-    "nl": "Geactiveerd wanneer een nieuw artikel wordt ontvangen van VI.",
-    "de": "Ausgelöst, wenn ein neuer Artikel von VI empfangen wird.",
-    "fr": "Déclenché lorsqu'un nouvel article est reçu de VI.",
-    "it": "Attivato quando viene ricevuto un nuovo articolo da VI.",
-    "sv": "Aktiveras när en ny artikel tas emot från VI.",
-    "no": "Utløst når en ny artikkel mottas fra VI.",
-    "es": "Activado cuando se recibe un nuevo artículo de VI.",
-    "da": "Udløst, når en ny artikel modtages fra VI.",
-    "ru": "Срабатывает, когда поступает новая статья от VI.",
-    "pl": "Wyzwalane, gdy zostanie odebrany nowy artykuł z VI."
+    "en": "Triggered when a new article is received from RSS Feed.",
+    "nl": "Geactiveerd wanneer een nieuw artikel wordt ontvangen van RSS Feed.",
+    "de": "Ausgelöst, wenn ein neuer Artikel von RSS Feed empfangen wird.",
+    "fr": "Déclenché lorsqu'un nouvel article est reçu de RSS Feed.",
+    "it": "Attivato quando viene ricevuto un nuovo articolo da RSS Feed.",
+    "sv": "Aktiveras när en ny artikel tas emot från RSS Feed.",
+    "no": "Utløst når en ny artikkel mottas fra RSS Feed.",
+    "es": "Activado cuando se recibe un nuevo artículo de RSS Feed.",
+    "da": "Udløst, når en ny artikel modtages fra RSS Feed.",
+    "ru": "Срабатывает, когда поступает новая статья от RSS Feed.",
+    "pl": "Wyzwalane, gdy zostanie odebrany nowy artykuł z RSS Feed."
   },
+"platforms": [
+  "local"
+],
+"args": [
+  {
+    "type": "device",
+    "name": "device",
+    "filter": "driver_id=RSS"
+  }
+],
   "tokens": [
     {
       "name": "title",
@@ -64,8 +74,8 @@
     {
       "name": "content",
       "title": {
-        "en": "Article Description",
-        "nl": "Artikel Omschrijving",
+        "en": "Article content",
+        "nl": "Artikel content",
         "de": "Artikelbeschreibung",
         "fr": "Description de l'article",
         "it": "Descrizione dell'articolo",
@@ -98,8 +108,8 @@
     {
       "name": "imageUrl",
       "title": {
-        "en": "Article Image URL",
-        "nl": "Artikel Afbeelding URL",
+        "en": "Image URL",
+        "nl": "Afbeelding URL",
         "de": "Artikelbild-URL",
         "fr": "URL de l'image de l'article",
         "it": "URL dell'immagine dell'articolo",
