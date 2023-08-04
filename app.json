@@ -214,6 +214,29 @@
       "capabilities": [],
       "pair": [
         {
+          "id": "rss_feed",
+          "options": {
+            "title": {
+              "en": "Fill in your Feed url and name"
+            },
+            "buttonLabel": {
+              "en": "Next"
+            },
+            "usernameLabel": {
+              "en": "Feed name"
+            },
+            "usernamePlaceholder": {
+              "en": "Homey RSS Feed reader"
+            },
+            "passwordLabel": {
+              "en": "Feed url"
+            },
+            "passwordPlaceholder": {
+              "en": "https://feedurl.com"
+            }
+          }
+        },
+        {
           "id": "list_devices",
           "template": "list_devices",
           "navigation": {
