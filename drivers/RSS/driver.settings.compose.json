@@ -1,0 +1,23 @@
+[
+	{
+	  "id": "feedUrl",
+	  "type": "text",
+	  "value": "",
+	  "label": {
+		"en": "RSS Feed URL",
+		"nl": "RSS-feed URL",
+		"pl": "Adres URL kanału RSS",
+		"de": "RSS-Feed-URL",
+		"fr": "URL du flux RSS",
+		"it": "URL del feed RSS",
+		"sv": "RSS-flödes-URL",
+		"no": "RSS-strøm-URL",
+		"es": "URL del feed RSS",
+		"da": "RSS-feed-URL",
+		"ru": "URL канала RSS",
+		"pl": "Adres URL kanału RSS"
+	  },
+	  "placeholder": "https://example.com/rss-feed"
+	}
+  ]
+  
