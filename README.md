@@ -21,13 +21,13 @@ This app gives Homey the ability to respond to messages of any RSS fees
 
 |Branch|Live Version|Status|Note| Test Version |
 | --- | --- | --- | --- | --- |
-|Homey Pro|**[In developmemt](https://homey.app/nl-nl/app/nl.lrvdlinden.rtl-nieuws/rtl-nieuws)**|:white_check_mark:|Stable| **[1.0.4](https://homey.app/nl-nl/app/nl.lrvdlinden.rtl-nieuws/rtl-nieuws/test)** |
+|Homey Pro|**[In developmemt](https://homey.app/nl-nl/app/nl.lrvdlinden.rtl-nieuws/rtl-nieuws)**|:white_check_mark:|Stable| **[1.0.5](https://homey.app/nl-nl/app/nl.lrvdlinden.rtl-nieuws/rtl-nieuws/test)** |
 
 
 ---
 
 ## Usage ⚙
-- - Install this app on your Homey.
+- Install this app on your Homey.
 - Add RSS Feed Reader as a new device.
 - Go to your device's settings and enter an rss feed.
 
