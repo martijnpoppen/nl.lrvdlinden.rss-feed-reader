@@ -1,6 +1,6 @@
 {
   "id": "nl.lrvdlinden.rss-feed-reader",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": ["local"],
@@ -14,14 +14,14 @@
     "small": "/assets/images/small.jpg"
   },
   "description": {
-    "en": "Receive notifications for new articles from VI.",
-    "nl": "Ontvang meldingen voor nieuwe artikelen van VI."
+    "en": "Receive notifications for new articles from any RSS Feed.",
+    "nl": "Ontvang meldingen voor nieuwe artikelen van elke RSS Feed."
   },
   "category": "internet",
   "class": "rss",
   "tags": {
-    "en": ["internet", "news", "nos", "nu.nl", "rss", "soccer", "vi"],
-    "nl": ["internet", "nieuws", "nos", "nu.nl", "rss", "voetbal", "vi"]
+    "en": ["internet", "news", "nos", "nu.nl", "rss", "feed"],
+    "nl": ["internet", "nieuws", "nos", "nu.nl", "rss", "feed"]
   },
   "language": {
     "en": "en",
@@ -33,12 +33,6 @@
     "email": "homey@vdlinden.xyz"
   },
   "contributors": {
-    "developers": [
-      {
-        "name": "Menno van Hout",
-        "email": "info@mennovanhout.nl"
-      }
-    ],
     "translators": [
       {
         "name": "🇬🇧 Léon"
@@ -59,28 +53,9 @@
     }
   },
   "bugs": {
-    "url": "https://community.homey.app/t/app-pro-vi-nieuws/85738"
+    "url": "https://community.homey.app/t/app-pro-rss-feed-reader/85954"
   },
   "homepage": "https://shor.by/LRvdLinden",
-  "support": "https://community.homey.app/t/app-pro-vi-nieuws/85738",
-  "homeyCommunityTopicId": 85738,
-  "settings": [
-    {
-      "id": "feed_urls",
-      "type": "text",
-      "title": {
-        "en": "RSS Feed URLs",
-        "nl": "RSS Feed URL's"
-      },
-      "multiple": true,
-      "placeholder": {
-        "en": "Enter RSS feed URL",
-        "nl": "Voer RSS-feed URL in"
-      },
-      "default": [
-        "https://www.vi.nl/feed/nieuws"
-      ],
-      "maximum": 10
-    }
-  ]
+  "support": "https://community.homey.app/t/app-pro-rss-feed-reader/85954",
+  "homeyCommunityTopicId": 85954
 }
