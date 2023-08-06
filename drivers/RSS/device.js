@@ -1,8 +1,7 @@
 'use strict';
 const { Device } = require('homey');
 const Parser = require('rss-parser');
-const axios = require('axios');
-const https = require('https');
+const fetch = require('node-fetch');
 
 class RSSDevice extends Device {
     log() {
@@ -36,12 +35,6 @@ class RSSDevice extends Device {
         });
 
         this.customImageArray = [ 'customImage1', 'customImage2', 'customImage3', 'customImage4', 'customImage5', 'customImage6' ];
-
-        this.instance = axios.create({
-            httpsAgent: new https.Agent({
-                rejectUnauthorized: false
-            })
-        });
 
         try {
             const settings = this.getSettings();
@@ -79,6 +72,29 @@ class RSSDevice extends Device {
         }
     }
 
+    async setImage(imagePath = null) {
+        try {
+            if (!this._image) {
+                this._imageSet = false;
+                this._image = await this.homey.images.createImage();
+
+                this.log(`[setImage] - Registering Device image`);
+            }
+
+            await this._image.setStream(async (stream) => {
+                    this.homey.app.log(`[setImage] - Setting image - `, imagePath);
+
+                    let res = await fetch(imagePath);
+                    return res.body.pipe(stream);
+            });
+
+            return Promise.resolve(true);
+        } catch (e) {
+            this.homey.app.error(e);
+            return Promise.reject(e);
+        }
+    }
+
     async checkRssFeed() {
         try {
             const feedXml = await this.getFeedXml();
@@ -93,12 +109,16 @@ class RSSDevice extends Device {
                 const customImage = customImageKey && latestItem[customImageKey];
                 
                 const imageUrl = await this.getImageUrl(customImage) || '';
+
+                await this.setImage(imageUrl);
+
                 const data = {
                     title,
                     link,
                     content,
                     pubDate,
-                    imageUrl
+                    imageUrl,
+                    image: this._image
                 };
 
                 // Check if the new article has a different pubDate from the last triggered article
@@ -118,15 +138,15 @@ class RSSDevice extends Device {
     }
 
     async getFeedXml() {
-        const req = await this.instance.get(this.feedUrl);
+        const res = await fetch(this.feedUrl);
 
-        this.log(`[Device] ${this.getName()} - [getFeedXml] - retrieving RSS-feed: ${req.status}`);
+        this.log(`[Device] ${this.getName()} - [getFeedXml] - retrieving RSS-feed: ${res.status}`);
 
-        if (req.status === 200) {
-            const body = req.data;
+        if (res.status === 200) {
+            const body = await res.text();
             return body;
         } else {
-            throw new Error(`[Device] ${this.getName()} - [getFeedXml] - Error in retrieving RSS-feed: ${req.status}`);
+            throw new Error(`[Device] ${this.getName()} - [getFeedXml] - Error in retrieving RSS-feed: ${res.status}`);
         }
     }
 

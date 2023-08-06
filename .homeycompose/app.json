@@ -33,6 +33,10 @@
     "email": "homey@vdlinden.xyz"
   },
   "contributors": {
+    "developers": [
+      {
+        "name": "Martijn Poppen"
+      }],
     "translators": [
       {
         "name": "🇬🇧 Léon"

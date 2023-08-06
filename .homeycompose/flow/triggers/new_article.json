@@ -121,6 +121,23 @@
         "pl": "URL obrazu artykułu"
       },
       "type": "string"
-    }
+    },
+    {
+        "name": "image",
+        "title": {
+          "en": "Image URL",
+          "nl": "Afbeelding URL",
+          "de": "Artikelbild-URL",
+          "fr": "URL de l'image de l'article",
+          "it": "URL dell'immagine dell'articolo",
+          "sv": "Artikelbild-URL",
+          "no": "Artikkelbilde-URL",
+          "es": "URL de la imagen del artículo",
+          "da": "Artikel Billede URL",
+          "ru": "URL изображения статьи",
+          "pl": "URL obrazu artykułu"
+        },
+        "type": "image"
+      }
   ]
 }
