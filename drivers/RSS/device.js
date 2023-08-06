@@ -49,8 +49,8 @@ class RSSDevice extends Device {
         }
     }
 
-    onSettings(oldSettings, newSettings, changedKeysArr) {
-        if (changedKeysArr.includes('feedUrl')) {
+    onSettings({ oldSettings, newSettings, changedKeys }) {
+        if (changedKeys.includes('feedUrl')) {
             this.feedUrl = newSettings.feedUrl;
             this.log(`[Device] ${this.getName()} - [onSettings] - Using feed URL from device settings: ${this.feedUrl}`);
 
