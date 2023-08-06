@@ -1,6 +1,8 @@
 'use strict';
 const { Device } = require('homey');
 const Parser = require('rss-parser');
+const axios = require('axios');
+const https = require('https');
 
 class RSSDevice extends Device {
     log() {
@@ -23,15 +25,25 @@ class RSSDevice extends Device {
         this.parser = new Parser({
             customFields: {
                 item: [
-                    ['media:thumbnail', 'customImage'],
-                    ['media:content', 'customImage'],
-                    ['enclosure', 'customImage']
+                    ['image', 'customImage1'],
+                    ['media:thumbnail', 'customImage2'],
+                    ['media:content', 'customImage3'],
+                    ['itunes', 'customImage4'],
+                    ['itunes:image', 'customImage5'],
+                    ['enclosure', 'customImage6']
                 ]
             }
         });
 
+        this.customImageArray = [ 'customImage1', 'customImage2', 'customImage3', 'customImage4', 'customImage5', 'customImage6' ];
+
+        this.instance = axios.create({
+            httpsAgent: new https.Agent({
+                rejectUnauthorized: false
+            })
+        });
+
         try {
-            // Check if the feedUrl is available in the settings, otherwise use the default URL
             const settings = this.getSettings();
             if (settings && settings.feedUrl) {
                 this.feedUrl = settings.feedUrl;
@@ -69,13 +81,17 @@ class RSSDevice extends Device {
 
     async checkRssFeed() {
         try {
-            const feed = await this.parser.parseURL(this.feedUrl);
+            const feedXml = await this.getFeedXml();
+            const feed = await this.parser.parseString(feedXml);
 
             if (feed && feed.items && feed.items.length) {
                 let [latestItem] = feed.items;
 
                 this.log(`Device] ${this.getName()} - [checkRssFeed] - got latestItem:`, latestItem);
-                const { title, link, content, pubDate, customImage } = latestItem;
+                const { title, link, content, pubDate } = latestItem;
+                const customImageKey = this.customImageArray.find((key) => latestItem.hasOwnProperty(key)) || '';
+                const customImage = customImageKey && latestItem[customImageKey];
+                
                 const imageUrl = await this.getImageUrl(customImage) || '';
                 const data = {
                     title,
@@ -101,11 +117,26 @@ class RSSDevice extends Device {
         }
     }
 
+    async getFeedXml() {
+        const req = await this.instance.get(this.feedUrl);
+
+        this.log(`[Device] ${this.getName()} - [getFeedXml] - retrieving RSS-feed: ${req.status}`);
+
+        if (req.status === 200) {
+            const body = req.data;
+            return body;
+        } else {
+            throw new Error(`[Device] ${this.getName()} - [getFeedXml] - Error in retrieving RSS-feed: ${req.status}`);
+        }
+    }
+
     async getImageUrl(customImage) {
         if(customImage && customImage.url) {
             return await customImage.url;
         } else if(customImage && customImage.$ && customImage.$.url) {
             return await customImage.$.url;
+        } else if(customImage && customImage.$ && customImage.$.href) {
+            return await customImage.$.href;
         }
 
         return 'not found';
